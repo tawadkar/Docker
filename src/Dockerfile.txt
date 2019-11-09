@@ -1,0 +1,15 @@
+FROM maven:3.5-jdk-8
+
+LABEL creator="Tanmay Wadkar"
+
+RUN mkdir -p /dir/subdir/JavaProject
+
+COPY . /usr/dir/subdir/JavaProject
+
+WORKDIR /usr/dir/subdir/JavaProject
+
+RUN echo "$PWD"
+
+RUN ["javac","helloWorld.java"]
+
+ENTRYPOINT ["java","helloWorld"]
